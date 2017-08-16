@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GGx-Eb-hYw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="KOc-BB-dnr">
+            <objects>
+                <viewController id="GGx-Eb-hYw" customClass="ViewController" customModule="VNCustomControlDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zed-jM-MXZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="XPz-NV-alf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8El-l5-VMY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5k6-ba-DCH" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="validationName" value="popup"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SPz-Dc-8ZH" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="66" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-n9-08W" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="104" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKr-M8-pMe" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="142" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-Ir-8le" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="180" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8yA-Vs-tkO" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="218" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUC-0h-HHB">
+                                <rect key="frame" x="16" y="256" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.29411764709999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitAction:" destination="GGx-Eb-hYw" eventType="touchUpInside" id="goC-iV-B5D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="leading" secondItem="pKr-M8-pMe" secondAttribute="leading" id="2cK-jb-aE5"/>
+                            <constraint firstItem="yUC-0h-HHB" firstAttribute="top" secondItem="8yA-Vs-tkO" secondAttribute="bottom" constant="8" symbolic="YES" id="D90-8T-qrx"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="top" secondItem="5k6-ba-DCH" secondAttribute="bottom" constant="8" symbolic="YES" id="FsH-Eq-aP1"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="trailing" secondItem="yUC-0h-HHB" secondAttribute="trailing" id="G4o-xz-44I"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="top" secondItem="zed-jM-MXZ" secondAttribute="bottom" constant="8" symbolic="YES" id="GeM-Ny-B3N"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="8El-l5-VMY" secondAttribute="leadingMargin" id="Hla-Um-ywK"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="leading" secondItem="yUC-0h-HHB" secondAttribute="leading" id="Nh3-P4-Chz"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="SPz-Dc-8ZH" secondAttribute="leading" id="OFV-0s-7dg"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="top" secondItem="pKr-M8-pMe" secondAttribute="bottom" constant="8" symbolic="YES" id="RKp-TW-OQz"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="leading" secondItem="zdo-n9-08W" secondAttribute="leading" id="Rlr-Ua-xHe"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="SPz-Dc-8ZH" secondAttribute="trailing" id="ZwE-ld-9Ix"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="leading" secondItem="MTX-Ir-8le" secondAttribute="leading" id="cjb-Gj-dzB"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="leading" secondItem="8yA-Vs-tkO" secondAttribute="leading" id="eo9-4v-nyN"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="trailing" secondItem="zdo-n9-08W" secondAttribute="trailing" id="f4S-ga-GSG"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="8El-l5-VMY" secondAttribute="trailingMargin" id="fSN-y4-JoS"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="top" secondItem="zdo-n9-08W" secondAttribute="bottom" constant="8" symbolic="YES" id="g7M-Qs-PET"/>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="top" secondItem="SPz-Dc-8ZH" secondAttribute="bottom" constant="8" symbolic="YES" id="hPJ-NG-oQ7"/>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="trailing" secondItem="pKr-M8-pMe" secondAttribute="trailing" id="lWj-55-Ubd"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="trailing" secondItem="MTX-Ir-8le" secondAttribute="trailing" id="q3a-oG-eQz"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="trailing" secondItem="8yA-Vs-tkO" secondAttribute="trailing" id="w8X-Am-jA8"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="top" secondItem="MTX-Ir-8le" secondAttribute="bottom" constant="8" symbolic="YES" id="zIM-6h-4iR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtConfirmPassword" destination="8yA-Vs-tkO" id="PZD-7O-Ger"/>
+                        <outlet property="txtEmail" destination="zdo-n9-08W" id="gf8-QI-ab5"/>
+                        <outlet property="txtFirstName" destination="5k6-ba-DCH" id="aan-5f-ive"/>
+                        <outlet property="txtLastName" destination="SPz-Dc-8ZH" id="2bN-Bv-Llo"/>
+                        <outlet property="txtPassword" destination="MTX-Ir-8le" id="JQb-s0-Lvd"/>
+                        <outlet property="txtPhone" destination="pKr-M8-pMe" id="bx2-CL-ifv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUJ-xy-JWL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+</document>
