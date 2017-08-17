@@ -120,6 +120,25 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             }
             else if(validationType == ValidationType.Popup)
             {
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ErrorController")
+                
+                vc.modalPresentationStyle = UIModalPresentationStyle.popover
+                vc.preferredContentSize = CGSize(width: self.frame.width, height: 300)
+                
+                
+                
+                vc.popoverPresentationController?.delegate = self
+                vc.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+                
+                
+                // in case we don't have a bar button as reference
+                vc.popoverPresentationController?.sourceView = self
+                vc.popoverPresentationController?.sourceRect = self.frame
+                let temp : UIViewController = (self.superview?.window?.rootViewController)!
+                temp.present(vc, animated: true, completion: nil)
+                
+                return
+                
                 let errorLabel = VNLabel()
                 errorLabel.lineBreakMode = .byWordWrapping
                 errorLabel.text = error!
@@ -156,6 +175,11 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             }
         }
     }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
+    }
+    
     
     @IBInspectable var leftPadding: CGFloat = 0
     @IBInspectable var rightPadding: CGFloat = 0
