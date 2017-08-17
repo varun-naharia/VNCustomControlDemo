@@ -120,20 +120,21 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             }
             else if(validationType == ValidationType.Popup)
             {
+                self.rightImage = validationImage
                 let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ErrorController")
                 
                 vc.modalPresentationStyle = UIModalPresentationStyle.popover
-                vc.preferredContentSize = CGSize(width: self.frame.width, height: 300)
+                vc.preferredContentSize = CGSize(width: self.frame.width, height: 100)
                 
                 
                 
                 vc.popoverPresentationController?.delegate = self
-                vc.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.any
+                vc.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
                 
                 
                 // in case we don't have a bar button as reference
-                vc.popoverPresentationController?.sourceView = self
-                vc.popoverPresentationController?.sourceRect = self.frame
+                vc.popoverPresentationController?.sourceView = self.rightImageView
+                vc.popoverPresentationController?.sourceRect = self.bounds
                 let temp : UIViewController = (self.superview?.window?.rootViewController)!
                 temp.present(vc, animated: true, completion: nil)
                 
@@ -144,7 +145,7 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
                 errorLabel.text = error!
                 errorLabel.numberOfLines = 0
                 
-                self.rightImage = validationImage
+               
                 
                 let popup:UIView = UIView()
                 let innerView:UIView = UIView()
@@ -239,15 +240,16 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             rightView = nil
         }
     }
-    
+    var rightImageView = UIImageView()
+    var leftImageView = UIImageView()
     func updateView() {
         if let imageLeft = leftImage {
             leftViewMode = UITextFieldViewMode.always
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            imageView.image = imageLeft
+            leftImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            leftImageView.image = imageLeft
             // Note: In order for your image to use the tint color, you have to select the image in the Assets.xcassets and change the "Render As" property to "Template Image".
-            imageView.tintColor = color
-            leftView = imageView
+            leftImageView.tintColor = color
+            leftView = leftImageView
         } else {
             leftViewMode = UITextFieldViewMode.never
             leftView = nil
@@ -255,11 +257,11 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
         
         if let imageRight = rightImage {
             rightViewMode = UITextFieldViewMode.always
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-            imageView.image = imageRight
+            rightImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            rightImageView.image = imageRight
             // Note: In order for your image to use the tint color, you have to select the image in the Assets.xcassets and change the "Render As" property to "Template Image".
-            imageView.tintColor = color
-            rightView = imageView
+            rightImageView.tintColor = color
+            rightView = rightImageView
         } else {
             rightViewMode = UITextFieldViewMode.never
             rightView = nil
