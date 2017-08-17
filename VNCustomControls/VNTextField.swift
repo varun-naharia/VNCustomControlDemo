@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class VNTextField: UITextField,UITextFieldDelegate {
+class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControllerDelegate {
     
     enum ValidationType:String {
         case Inside = "inside"
@@ -123,29 +123,38 @@ class VNTextField: UITextField,UITextFieldDelegate {
                 let errorLabel = VNLabel()
                 errorLabel.lineBreakMode = .byWordWrapping
                 errorLabel.text = error!
+                errorLabel.numberOfLines = 0
+                
                 self.rightImage = validationImage
+                
                 let popup:UIView = UIView()
                 let innerView:UIView = UIView()
+                
                 innerView.backgroundColor = UIColor.black
                 popup.backgroundColor = UIColor.red
                 errorLabel.textColor = UIColor.white
                 errorLabel.backgroundColor = UIColor.black
+                
                 popup.addSubview(innerView)
                 innerView.addSubview(errorLabel)
                 self.superview?.addSubview(popup)
+                
                 var viewWidth = errorLabel.intrinsicContentSize.width
                 if(viewWidth > UIScreen.main.bounds.width)
                 {
                     viewWidth = UIScreen.main.bounds.width
                 }
-                innerView.frame = CGRect(x: 0, y: 5, width: viewWidth+10, height: errorLabel.intrinsicContentSize.height+5)
-                popup.frame = CGRect(x: (self.frame.maxX)-(viewWidth+10), y: self.frame.maxY+5, width: viewWidth+10, height: errorLabel.intrinsicContentSize.height+10)
-                errorLabel.frame = CGRect(x: 5, y: 2.5, width: viewWidth, height: errorLabel.intrinsicContentSize.height)
                 
+                // Calculate frame of error label according to text
+                let rect = errorLabel.textRect(forBounds: CGRect(x: 0, y: 0, width: self.frame.size.width - 5, height: CGFloat(MAXFLOAT)), limitedToNumberOfLines: 0)
+                print(rect)
+                    
+                errorLabel.frame = CGRect(x: 2.5, y: 0, width: self.frame.size.width - 5, height: rect.size.height+10)
+                innerView.frame = CGRect(x: 0, y: 5, width: self.frame.size.width, height: rect.size.height+10)
+                
+                popup.frame = CGRect(x:self.frame.origin.x , y: self.frame.maxY+5, width: self.frame.size.width, height: rect.size.height+10)
             }
-            
         }
-        
     }
     
     @IBInspectable var leftPadding: CGFloat = 0
