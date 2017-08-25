@@ -41,6 +41,20 @@ class ViewController: UIViewController {
             isValid = false
             txtFirstName.setError(error: "Please enter first Name!Please enter first Name!Please enter first Name!Please enter first Name! ")
         }
+        if(txtEmail.text == "")
+        {
+            txtEmail.setError(error: "Please enter Email")
+        }
+        
+        if(txtPhone.text == "")
+        {
+            txtPhone.setError(error: "Please enter Phone")
+        }
+        
+        if(txtLastName.text == "")
+        {
+            txtLastName.setError(error: "Please enter last name")
+        }
         
         return isValid
     }

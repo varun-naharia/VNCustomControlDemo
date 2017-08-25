@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GGx-Eb-hYw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17A344b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GGx-Eb-hYw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,6 +29,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="validationName" value="popup"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="validationImage" value="alert.png"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SPz-Dc-8ZH" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
@@ -36,19 +37,43 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="validationName" value="inside"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="validationImage" value="alert.png"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-n9-08W" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
                                 <rect key="frame" x="16" y="104" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="validationName" value="popup"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="validationImage" value="alert.png"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pKr-M8-pMe" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
                                 <rect key="frame" x="16" y="142" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="validationName" value="outside"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="validationImage" value="alert.png"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="validationLabel" destination="MX9-g1-sFO" id="Mwe-Iu-JJx"/>
+                                </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-g1-sFO" customClass="VNLabel" customModule="VNCustomControlDemo" customModuleProvider="target">
+                                <rect key="frame" x="16" y="172" width="343" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="uNt-hm-nAZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.12309864855881647" blue="0.26449298136576072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-Ir-8le" customClass="VNTextField" customModule="VNCustomControlDemo" customModuleProvider="target">
                                 <rect key="frame" x="16" y="180" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -72,29 +97,32 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zdo-n9-08W" firstAttribute="leading" secondItem="pKr-M8-pMe" secondAttribute="leading" id="2cK-jb-aE5"/>
-                            <constraint firstItem="yUC-0h-HHB" firstAttribute="top" secondItem="8yA-Vs-tkO" secondAttribute="bottom" constant="8" symbolic="YES" id="D90-8T-qrx"/>
-                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="top" secondItem="5k6-ba-DCH" secondAttribute="bottom" constant="8" symbolic="YES" id="FsH-Eq-aP1"/>
-                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="trailing" secondItem="yUC-0h-HHB" secondAttribute="trailing" id="G4o-xz-44I"/>
-                            <constraint firstItem="5k6-ba-DCH" firstAttribute="top" secondItem="zed-jM-MXZ" secondAttribute="bottom" constant="8" symbolic="YES" id="GeM-Ny-B3N"/>
-                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="8El-l5-VMY" secondAttribute="leadingMargin" id="Hla-Um-ywK"/>
-                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="leading" secondItem="yUC-0h-HHB" secondAttribute="leading" id="Nh3-P4-Chz"/>
-                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="SPz-Dc-8ZH" secondAttribute="leading" id="OFV-0s-7dg"/>
-                            <constraint firstItem="MTX-Ir-8le" firstAttribute="top" secondItem="pKr-M8-pMe" secondAttribute="bottom" constant="8" symbolic="YES" id="RKp-TW-OQz"/>
-                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="leading" secondItem="zdo-n9-08W" secondAttribute="leading" id="Rlr-Ua-xHe"/>
-                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="SPz-Dc-8ZH" secondAttribute="trailing" id="ZwE-ld-9Ix"/>
-                            <constraint firstItem="pKr-M8-pMe" firstAttribute="leading" secondItem="MTX-Ir-8le" secondAttribute="leading" id="cjb-Gj-dzB"/>
-                            <constraint firstItem="MTX-Ir-8le" firstAttribute="leading" secondItem="8yA-Vs-tkO" secondAttribute="leading" id="eo9-4v-nyN"/>
-                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="trailing" secondItem="zdo-n9-08W" secondAttribute="trailing" id="f4S-ga-GSG"/>
-                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="8El-l5-VMY" secondAttribute="trailingMargin" id="fSN-y4-JoS"/>
-                            <constraint firstItem="pKr-M8-pMe" firstAttribute="top" secondItem="zdo-n9-08W" secondAttribute="bottom" constant="8" symbolic="YES" id="g7M-Qs-PET"/>
-                            <constraint firstItem="zdo-n9-08W" firstAttribute="top" secondItem="SPz-Dc-8ZH" secondAttribute="bottom" constant="8" symbolic="YES" id="hPJ-NG-oQ7"/>
-                            <constraint firstItem="zdo-n9-08W" firstAttribute="trailing" secondItem="pKr-M8-pMe" secondAttribute="trailing" id="lWj-55-Ubd"/>
-                            <constraint firstItem="pKr-M8-pMe" firstAttribute="trailing" secondItem="MTX-Ir-8le" secondAttribute="trailing" id="q3a-oG-eQz"/>
-                            <constraint firstItem="MTX-Ir-8le" firstAttribute="trailing" secondItem="8yA-Vs-tkO" secondAttribute="trailing" id="w8X-Am-jA8"/>
-                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="top" secondItem="MTX-Ir-8le" secondAttribute="bottom" constant="8" symbolic="YES" id="zIM-6h-4iR"/>
+                            <constraint firstItem="MX9-g1-sFO" firstAttribute="trailing" secondItem="MTX-Ir-8le" secondAttribute="trailing" id="0OU-nt-Onq"/>
+                            <constraint firstItem="MX9-g1-sFO" firstAttribute="leading" secondItem="MTX-Ir-8le" secondAttribute="leading" id="2MA-zH-2yU"/>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="trailing" secondItem="pKr-M8-pMe" secondAttribute="trailing" id="9aq-wi-JmR"/>
+                            <constraint firstItem="MX9-g1-sFO" firstAttribute="top" secondItem="pKr-M8-pMe" secondAttribute="bottom" id="AXG-GG-5t1"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="leading" secondItem="MX9-g1-sFO" secondAttribute="leading" id="DuD-Dp-sOa"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="8El-l5-VMY" secondAttribute="trailingMargin" id="FZw-dD-vV0"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="top" secondItem="MX9-g1-sFO" secondAttribute="bottom" constant="8" symbolic="YES" id="GC0-6K-zjv"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="top" secondItem="5k6-ba-DCH" secondAttribute="bottom" constant="8" symbolic="YES" id="HKe-Dh-HS9"/>
+                            <constraint firstItem="yUC-0h-HHB" firstAttribute="top" secondItem="8yA-Vs-tkO" secondAttribute="bottom" constant="8" symbolic="YES" id="KZZ-t1-9wF"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="trailing" secondItem="SPz-Dc-8ZH" secondAttribute="trailing" id="Lmd-EJ-reg"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="trailing" secondItem="zdo-n9-08W" secondAttribute="trailing" id="Mos-Rr-JlX"/>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="top" secondItem="SPz-Dc-8ZH" secondAttribute="bottom" constant="8" symbolic="YES" id="UXM-7G-aHS"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="trailing" secondItem="MX9-g1-sFO" secondAttribute="trailing" id="VJI-eh-Scd"/>
+                            <constraint firstItem="pKr-M8-pMe" firstAttribute="top" secondItem="zdo-n9-08W" secondAttribute="bottom" constant="8" symbolic="YES" id="ZwN-xz-Yma"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="8El-l5-VMY" secondAttribute="leadingMargin" id="adk-tB-Fjj"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="leading" secondItem="8yA-Vs-tkO" secondAttribute="leading" id="bvF-EP-xAO"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="leading" secondItem="SPz-Dc-8ZH" secondAttribute="leading" id="byC-pR-ZZe"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="trailing" secondItem="yUC-0h-HHB" secondAttribute="trailing" id="g6P-4H-4IX"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="leading" secondItem="yUC-0h-HHB" secondAttribute="leading" id="gIP-OT-rom"/>
+                            <constraint firstItem="5k6-ba-DCH" firstAttribute="top" secondItem="zed-jM-MXZ" secondAttribute="bottom" constant="8" symbolic="YES" id="gVA-ab-POF"/>
+                            <constraint firstItem="8yA-Vs-tkO" firstAttribute="top" secondItem="MTX-Ir-8le" secondAttribute="bottom" constant="8" symbolic="YES" id="hYD-8F-Rjy"/>
+                            <constraint firstItem="MTX-Ir-8le" firstAttribute="trailing" secondItem="8yA-Vs-tkO" secondAttribute="trailing" id="mzc-wb-PDj"/>
+                            <constraint firstItem="SPz-Dc-8ZH" firstAttribute="leading" secondItem="zdo-n9-08W" secondAttribute="leading" id="qMy-rB-g8i"/>
+                            <constraint firstItem="zdo-n9-08W" firstAttribute="leading" secondItem="pKr-M8-pMe" secondAttribute="leading" id="z4D-vf-05j"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,36 +138,8 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="G0x-Vd-Bcd">
-            <objects>
-                <viewController storyboardIdentifier="ErrorController" id="Gef-GN-hnj" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FVq-77-nyc"/>
-                        <viewControllerLayoutGuide type="bottom" id="pVm-9z-Wgc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="COf-Hk-Y9c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaN-q2-K1m">
-                                <rect key="frame" x="16" y="28" width="343" height="619"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qaN-q2-K1m" firstAttribute="top" secondItem="FVq-77-nyc" secondAttribute="bottom" constant="8" id="4rL-Dw-d2m"/>
-                            <constraint firstItem="pVm-9z-Wgc" firstAttribute="top" secondItem="qaN-q2-K1m" secondAttribute="bottom" constant="20" id="JSH-GW-Rcg"/>
-                            <constraint firstItem="qaN-q2-K1m" firstAttribute="leading" secondItem="COf-Hk-Y9c" secondAttribute="leading" constant="16" id="XiO-fy-yCW"/>
-                            <constraint firstAttribute="trailing" secondItem="qaN-q2-K1m" secondAttribute="trailing" constant="16" id="hz8-VE-Tv6"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Z5-hq-LTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="925.60000000000002" y="122.78860569715144"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="alert.png" width="20" height="20"/>
+    </resources>
 </document>

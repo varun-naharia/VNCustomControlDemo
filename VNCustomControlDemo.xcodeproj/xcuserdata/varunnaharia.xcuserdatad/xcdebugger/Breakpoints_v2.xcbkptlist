@@ -6,15 +6,95 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525333848.903148"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "validationName"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VNCustomControlDemo.VNTextField.validationName.willset : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "VNCustomControlDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/varunnaharia/Documents/Demo/VNCustomControlDemo/VNCustomControls/VNTextField.swift"
+                  timestampString = "525336994.355312"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "61">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "VNCustomControlDemo.VNTextField.(validationName.willset : Swift.Optional&lt;Swift.String&gt;).(implicit closure #1)"
+                  moduleName = "VNCustomControlDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/varunnaharia/Documents/Demo/VNCustomControlDemo/VNCustomControls/VNTextField.swift"
+                  timestampString = "525336994.358637"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VNCustomControls/VNTextField.swift"
-            timestampString = "524559467.824512"
+            timestampString = "525336994.241948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "tapOnError(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525336994.241948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "tapOnError(sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525337055.778713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "setError(error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,45 +106,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VNCustomControls/VNTextField.swift"
-            timestampString = "524559572.397754"
+            timestampString = "525337072.52958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "validationName"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "setError(error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525337076.506918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "setError(error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525337130.974325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "rightImage"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VNCustomControlDemo.VNTextField.validationName.willset : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "VNCustomControlDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/varunnaharia/Documents/Demo/VNCustomControlDemo/VNCustomControls/VNTextField.swift"
-                  timestampString = "524559834.830428"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "61">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "VNCustomControlDemo.VNTextField.(validationName.willset : Swift.Optional&lt;Swift.String&gt;).(implicit closure #1)"
-                  moduleName = "VNCustomControlDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/varunnaharia/Documents/Demo/VNCustomControlDemo/VNCustomControls/VNTextField.swift"
-                  timestampString = "524559834.833498"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VNCustomControls/VNTextField.swift"
+            timestampString = "525337887.797813"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "setTapGesture()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

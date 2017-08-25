@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControllerDelegate {
+class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControllerDelegate, UIGestureRecognizerDelegate {
     
     enum ValidationType:String {
         case Inside = "inside"
@@ -78,76 +78,40 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
         }
     }
     
-    var errorLable:VNLabel = VNLabel()
+    var errorLabel:VNLabel = VNLabel()
+    var errorString = ""
+    var popup:UIView = UIView()
     func setError(error:String?){
         if(error != nil)
         {
             self.text = ""
             if(validationType == ValidationType.Inside)
             {
-                self.attributedPlaceholder = NSAttributedString(string: error!, attributes: [NSForegroundColorAttributeName: UIColor.red])
+                self.rightImage = validationImage
+                errorString = error!
             }
             else if(validationType == ValidationType.Outside)
             {
+                errorString = error!
                 validationLabel.text = error!
                 validationLabel.textColor = UIColor.red
-                validationLabel.leftImage = validationImage
+                self.rightImage = validationImage
                 self.delegate = self
                 //let heightConstraint = validationLabel.heightAnchor.constraint(equalToConstant: 23)
                 //NSLayoutConstraint.activate([heightConstraint])
-                for constraint in validationLabel.constraints {
-                    if(constraint.firstAttribute == NSLayoutAttribute.height)
-                    {
-                        
-                        validationLabel.alpha = 0.5
-                        self.validationLabel.center.y = self.validationLabel.center.y-25
-                        constraint.constant = 25
-                        UIView.animate(withDuration: 0.5,
-                                       delay: 0.0,
-                                       options: UIViewAnimationOptions.transitionCurlDown,
-                                       animations: { () -> Void in
-                                        self.validationLabel.alpha = 1.0
-                                        self.validationLabel.center.y = self.validationLabel.center.y + 25
-                                        
-                        }, completion: { (finished) -> Void in
-                            if(finished)
-                            {
-                            }
-                        })
-                        
-                    }
-                }
+                
             }
             else if(validationType == ValidationType.Popup)
             {
-                self.rightImage = validationImage
-                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ErrorController")
-                
-                vc.modalPresentationStyle = UIModalPresentationStyle.popover
-                vc.preferredContentSize = CGSize(width: self.frame.width, height: 100)
-                
-                
-                
-                vc.popoverPresentationController?.delegate = self
-                vc.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-                
-                
-                // in case we don't have a bar button as reference
-                vc.popoverPresentationController?.sourceView = self.rightImageView
-                vc.popoverPresentationController?.sourceRect = self.bounds
-                let temp : UIViewController = (self.superview?.window?.rootViewController)!
-                temp.present(vc, animated: true, completion: nil)
-                
-                return
-                
-                let errorLabel = VNLabel()
+                popup.isHidden = true
+                errorString = error!
                 errorLabel.lineBreakMode = .byWordWrapping
                 errorLabel.text = error!
                 errorLabel.numberOfLines = 0
-                
+                self.rightImage = validationImage
                
+                popup.clipsToBounds = true
                 
-                let popup:UIView = UIView()
                 let innerView:UIView = UIView()
                 
                 innerView.backgroundColor = UIColor.black
@@ -173,6 +137,94 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
                 innerView.frame = CGRect(x: 0, y: 5, width: self.frame.size.width, height: rect.size.height+10)
                 
                 popup.frame = CGRect(x:self.frame.origin.x , y: self.frame.maxY+5, width: self.frame.size.width, height: rect.size.height+10)
+            }
+            
+        }
+    }
+    var isErrorVisible:Bool = false
+    func tapOnError() {
+        // handling code
+        if(validationType == ValidationType.Outside)
+        {
+            if(isErrorVisible)
+            {
+                isErrorVisible = false
+                for constraint in validationLabel.constraints {
+                    if(constraint.firstAttribute == NSLayoutAttribute.height)
+                    {
+                        
+                        validationLabel.alpha = 0.5
+                        self.validationLabel.center.y = self.validationLabel.center.y-25
+                        constraint.constant = 0
+                        UIView.animate(withDuration: 0.5,
+                                       delay: 0.0,
+                                       options: UIViewAnimationOptions.transitionCurlDown,
+                                       animations: { () -> Void in
+                                        self.validationLabel.alpha = 1.0
+                                        self.validationLabel.center.y = self.validationLabel.center.y + 25
+                                        
+                        }, completion: { (finished) -> Void in
+                            if(finished)
+                            {
+                            }
+                        })
+                        
+                    }
+                }
+            }
+            else
+            {
+                isErrorVisible = true
+                for constraint in validationLabel.constraints {
+                    if(constraint.firstAttribute == NSLayoutAttribute.height)
+                    {
+                        
+                        validationLabel.alpha = 0.5
+                        self.validationLabel.center.y = self.validationLabel.center.y-25
+                        constraint.constant = 25
+                        UIView.animate(withDuration: 0.5,
+                                       delay: 0.0,
+                                       options: UIViewAnimationOptions.transitionCurlDown,
+                                       animations: { () -> Void in
+                                        self.validationLabel.alpha = 1.0
+                                        self.validationLabel.center.y = self.validationLabel.center.y + 25
+                                        
+                        }, completion: { (finished) -> Void in
+                            if(finished)
+                            {
+                            }
+                        })
+                        
+                    }
+                }
+            }
+        }
+        
+        if(validationType == ValidationType.Inside)
+        {
+            if(isErrorVisible)
+            {
+                isErrorVisible = false
+                self.attributedPlaceholder = NSAttributedString(string: "", attributes: [NSForegroundColorAttributeName: UIColor.lightGray])
+            }
+            else
+            {
+                isErrorVisible = true
+                self.attributedPlaceholder = NSAttributedString(string: errorString, attributes: [NSForegroundColorAttributeName: UIColor.red])
+            }
+            
+        }
+        if(validationType == ValidationType.Popup)
+        {
+            if(isErrorVisible)
+            {
+                isErrorVisible = false
+                popup.isHidden = true
+            }
+            else
+            {
+                popup.isHidden = false
+                isErrorVisible = true
             }
         }
     }
@@ -234,6 +286,8 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             let rightImageView:UIImageView = UIImageView(image: rightImage)
             rightImageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.height, height: self.frame.size.height)
             self.rightView = rightImageView
+            
+            
         }
         else {
             rightViewMode = UITextFieldViewMode.never
@@ -256,6 +310,7 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
         }
         
         if let imageRight = rightImage {
+            setTapGesture()
             rightViewMode = UITextFieldViewMode.always
             rightImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             rightImageView.image = imageRight
@@ -275,6 +330,17 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             underline.frame = CGRect(x: 0, y: self.frame.size.height-1, width: self.frame.size.width, height: 1)
             underline.backgroundColor = underlineColor
             self.addSubview(underline)
+        }
+    }
+    
+    var isTapGestureSet = false
+    func setTapGesture() {
+        if (!isTapGestureSet)
+        {
+            isTapGestureSet = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnError))
+            tap.delegate = self
+            self.rightImageView.addGestureRecognizer(tap)
         }
     }
     
