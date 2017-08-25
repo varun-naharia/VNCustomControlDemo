@@ -11,13 +11,14 @@ import UIKit
 @IBDesignable
 class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControllerDelegate, UIGestureRecognizerDelegate {
     
+    
+    
+    @IBOutlet weak var validationLabel:VNLabel!
     enum ValidationType:String {
         case Inside = "inside"
         case Outside = "outside"
         case Popup = "popup"
     }
-    
-    @IBOutlet weak var validationLabel:VNLabel!
     var placeholdertext: String?
     @IBInspectable
     public var cornerRadius :CGFloat {
@@ -310,13 +311,14 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
         }
         
         if let imageRight = rightImage {
-            setTapGesture()
+            
             rightViewMode = UITextFieldViewMode.always
             rightImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             rightImageView.image = imageRight
             // Note: In order for your image to use the tint color, you have to select the image in the Assets.xcassets and change the "Render As" property to "Template Image".
             rightImageView.tintColor = color
             rightView = rightImageView
+            setTapGesture()
         } else {
             rightViewMode = UITextFieldViewMode.never
             rightView = nil
@@ -340,6 +342,7 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
             isTapGestureSet = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnError))
             tap.delegate = self
+            self.rightImageView.isUserInteractionEnabled = true
             self.rightImageView.addGestureRecognizer(tap)
         }
     }
@@ -351,6 +354,7 @@ class VNTextField: UITextField,UITextFieldDelegate,UIPopoverPresentationControll
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return self.textRect(forBounds: bounds)
     }
+    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(validationLabel != nil && validationLabel.alpha > 0.0)
